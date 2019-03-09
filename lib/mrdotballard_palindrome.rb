@@ -3,7 +3,11 @@ require "mrdotballard_palindrome/version"
 module MrdotballardPalindrome
   # Returns true for a palindrome, false otherwise.
   def palindrome?
-    processed_content == processed_content.reverse
+    if !processed_content
+      return false
+    else
+        processed_content == processed_content.reverse
+    end      
   end
 
 
@@ -11,7 +15,12 @@ module MrdotballardPalindrome
 
     # Returns content for palindrome testing.
     def processed_content
-      self.to_s.scan(/[a-z\d]/i).join.downcase
+      result = self.to_s.scan(/[a-z\d]/i).join.downcase
+      if result.empty?
+        return false
+      else
+        return result
+      end
     end
 end
 

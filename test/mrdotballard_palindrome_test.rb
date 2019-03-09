@@ -25,4 +25,12 @@ class MrdotballardPalindromeTest < Minitest::Test
   def test_non_integer_palindrome
     refute 12345.palindrome?
   end
+
+  def test_empty_string
+    refute "".palindrome?
+  end
+
+  def test_spaces_string
+    refute "    ".palindrome?
+  end
 end
